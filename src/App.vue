@@ -3,10 +3,17 @@
     data() {
 	return {
 		name: 'Pudge',
-		surn: 'amogus',
-	}
-}
+		surn: ' ',
+    text: 'page',
+		href: 'page.html',
+    num: 5,
+    num1: 1,
+		num2: 2,
+		num3: 3,
   }
+    }
+  }
+
 </script>
 
 <template>
@@ -16,6 +23,8 @@
   <br>
   <div> <p> {{ name }} {{ surn }}</p>
   </div>
+  <a href="page.html">page</a>
+  <p>Квадрат num равен {{num*num}}, сумма num1,num2,num3 равна {{num1+num2+num3}}</p>
 </template>
 
 <style >
