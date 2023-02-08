@@ -15,6 +15,11 @@
   }
     }
   }
+  methods: {
+    let today = new Date();
+    let now = today.toLocaleString();
+    alert(now);
+  }
 
 </script>
 
