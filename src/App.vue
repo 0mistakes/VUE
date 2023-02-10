@@ -2,11 +2,12 @@
 export default {
     data() {
 	return {
+    text: 'Initial value',
 		name: 'Pudge',
 		surn: ' ',
 		href: 'page.html',
 	};
-  },
+},
   
   methods: {
     show() {
@@ -22,6 +23,12 @@ export default {
       const currentDay = new Date().getDay();
       alert(`Today is ${this.getDayOfWeek(currentDay)}`);
     },
+    changeText1() {
+      this.text = 'First value';
+    },
+    changeText2() {
+      this.text = 'Second value';
+    },
   },
   
   created() {
@@ -34,12 +41,15 @@ export default {
 		<h1> vue quest </h1>
 	</div>
   <br>
-  <div> <p> {{ name }} {{ surn }}</p>
+  <div class="left-side">
+    <p> {{ name }} {{ surn }}</p>
   </div>
   <a href="page.html">page</a>
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
+  <button @click="changeText1" class="custom-btn btn-12">{{ text }}</button>
+  <button @click="changeText2" class="custom-btn btn-12">{{ text }}</button>
 </template>
 <style >
 
