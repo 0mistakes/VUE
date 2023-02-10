@@ -1,5 +1,5 @@
 <script>
-  export default {
+export default {
     data() {
 	return {
 		name: 'Pudge',
@@ -12,15 +12,15 @@
 		num3: 3,
     arr1: ['x', 'y', 'z'], 
     arr2: [1, 2, 3], 
-  }
-    }
-  }
-  methods: {
-    let today = new Date();
-    let now = today.toLocaleString();
-    alert(now);
-  }
+  };
+},
 
+  methods: {
+    show() {
+      alert(new Date().toLocaleString());
+    },
+  },
+};
 </script>
 
 <template>
@@ -31,10 +31,67 @@
   <div> <p> {{ name }} {{ surn }}</p>
   </div>
   <a href="page.html">page</a>
+  <button @mouseenter="show" class="custom-btn btn-12">
+    <span>Узнать дату</span>
+  </button>
   <p>Квадрат num равен {{num*num}}, сумма num1,num2,num3 равна {{num1+num2+num3}}</p>
 </template>
 
 <style >
+
+.custom-btn {
+  width: 130px;
+  height: 40px;
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 25px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),
+   7px 7px 20px 0px rgba(0,0,0,.1),
+   4px 4px 5px 0px rgba(0,0,0,.1);
+  outline: none;
+}
+.btn-13 {
+  background-color: #89d8d3;
+background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+  border: none;
+  z-index: 1;
+}
+.btn-13:after {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 5px;
+   background-color: #4dccc6;
+background-image: linear-gradient(315deg, #4dccc6 0%, #96e4df 74%);
+  box-shadow:
+   -7px -7px 20px 0px #fff9,
+   -4px -4px 5px 0px #fff9,
+   7px 7px 20px 0px #0002,
+   4px 4px 5px 0px #0001;
+  transition: all 0.3s ease;
+}
+.btn-13:hover {
+  color: #fff;
+}
+.btn-13:hover:after {
+  top: 0;
+  height: 100%;
+}
+.btn-13:active {
+  top: 2px;
+}
+
 header {
   line-height: 2.5;
 }
