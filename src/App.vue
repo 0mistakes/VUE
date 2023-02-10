@@ -9,15 +9,21 @@ export default {
     num: 5,
     num1: 1,
 		num2: 2,
-		num3: 3,
-    arr1: ['x', 'y', 'z'], 
-    arr2: [1, 2, 3], 
   };
 },
+
+  created() {
+    this.showSum();
+  },
 
   methods: {
     show() {
       alert(new Date().toLocaleString());
+    },
+  },
+  methods: {
+    showSum() {
+      alert(`The sum of num1 and num2 is ${this.num1 + this.num2}`);
     },
   },
 };
@@ -34,7 +40,6 @@ export default {
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
-  <p>Квадрат num равен {{num*num}}, сумма num1,num2,num3 равна {{num1+num2+num3}}</p>
 </template>
 
 <style >
