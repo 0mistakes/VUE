@@ -4,31 +4,31 @@ export default {
 	return {
 		name: 'Pudge',
 		surn: ' ',
-    text: 'page',
 		href: 'page.html',
-    num: 5,
-    num1: 1,
-		num2: 2,
-  };
-},
-
-  created() {
-    this.showSum();
+	};
   },
-
+  
   methods: {
     show() {
       alert(new Date().toLocaleString());
     },
-  },
-  methods: {
-    showSum() {
-      alert(`The sum of num1 and num2 is ${this.num1 + this.num2}`);
+
+    getDayOfWeek(num) {
+      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      return daysOfWeek[num];
     },
+
+    showDayOfWeek() {
+      const currentDay = new Date().getDay();
+      alert(`Today is ${this.getDayOfWeek(currentDay)}`);
+    },
+  },
+  
+  created() {
+    this.showDayOfWeek();
   },
 };
 </script>
-
 <template>
   <div>
 		<h1> vue quest </h1>
@@ -41,7 +41,6 @@ export default {
     <span>Узнать дату</span>
   </button>
 </template>
-
 <style >
 
 .custom-btn {
