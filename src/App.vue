@@ -13,43 +13,7 @@ export default {
     buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
     isAdmin: true,
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
-    hrefs: [
-        {href: '1.html', text: 'text1'},
-        {href: '2.html', text: 'text2'},
-        {href: '3.html', text: 'text3'},
-		],
-    products: [
-        {
-          name: 'product1',
-          price: 100,
-          quantity: 5
-        },
-        {
-          name: 'product2',
-          price: 200,
-          quantity: 4
-        },
-        {
-          name: 'product3',
-          price: 300,
-          quantity: 3
-        },
-    ],
-    items: [1, -2, 3, -4, 5],
-    products: [
-			{
-				id: 1,
-				name: 'product1',
-			},
-			{
-				id: 2,
-				name: 'product2',
-			},
-			{
-				id: 3,
-				name: 'product3',
-			},
-		]
+    arr: ['a', 'c', 'd'],
 	};
 },
 
@@ -113,6 +77,24 @@ export default {
   created() {
     this.showDayOfWeek();
   },
+  add: function() {
+		  this.arr.push('b');
+  },
+    delFirst: function() {
+      this.arr.shift();
+  },
+    delLast: function() {
+      this.arr.pop();
+  },
+    delSecondToLast: function() {
+      this.arr.splice(-2, 1);
+  },
+    sortArr: function() {
+      this.arr.sort();
+  },
+    reverseOrder: function() {
+      this.arr.reverse();
+  }
 };
 </script>
 <template>
@@ -128,24 +110,15 @@ export default {
     <span>Узнать дату</span>
   </button>
   Задание 1&nbsp;|&nbsp;
-  <ul v-for="smh in hrefs">
-    <li><a href="{{ smh.href }}">{{ smh.text }}</a></li>
-  </ul>
-  <br>Задание 2&nbsp;|&nbsp;
-  <table v-for="product in products">
-    <tr>
-      <td>{{ product.name }}</td>
-      <td>{{ product.price }}</td>
-      <td>{{ product.quantity }}</td>
-    </tr>
-  </table>
-  <p v-for="num in 30">{{ num }}&nbsp;</p>
-  <div v-for="item in items">
-    <p v-if="item >= 0">{{ item }}&nbsp;</p>
-  </div>
-  <ul v-for="smh in products" :key="smh.id">
-    <li>{{ smh.name }}</li>
-  </ul>
+  <button @click.once="add">Задание 1</button>
+  <button @click.once="delFirst">Задание 2</button>
+  <button @click.once="delLast">Задание 3</button>
+  <button @click.once="delSecondToLast">Задание 4</button>
+  <button @click.once="sortArr">Задание 5</button>
+  <button @click.once="reverseOrder">Задание 6</button>
+  <ul v-for="elem in arr">
+    <li>{{ elem }}</li>
+  </ul><br>
 </template>
 <style >
 
