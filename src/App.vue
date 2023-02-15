@@ -23,6 +23,7 @@ export default {
         user2: '200$ -2',
         user3: '300$ -3',
       },
+    items: [1, 2, 3],
 	};
 },
 
@@ -106,6 +107,12 @@ export default {
     {{ key }} - {{ value }} - {{ index + 1 }}
     </li>
   </ul>
+  <div>
+    <div v-for="item in items" :key="item">
+      <p>{{ item }}</p>
+      <p class="divider"></p>
+    </div>
+  </div>
 </template>
 <style >
 
