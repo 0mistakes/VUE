@@ -19,6 +19,7 @@ export default {
     showParagraph3: true,
     showParagraph: true,
     items: [1, 2, 3, 4, 5],
+    arr: ['x', 'y', 'z'],
 	};
 },
 
@@ -96,10 +97,8 @@ export default {
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
-  <div v-for="item in items" :key="item">{{ item }}</div>
-  <div v-for="item in items" :key="item">{{ square(item) }}</div>
   <ul>
-    <li v-for="item in items" :key="item">{{ item }}</li>
+    <li v-for="(item, index) in arr" :key="index">{{ index }}</li>
   </ul>
 </template>
 <style >
