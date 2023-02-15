@@ -10,7 +10,8 @@ export default {
     amount: 5,
     isVisible: false,
     visible: [false, false, false],
-    buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3']
+    buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
+    isAdmin: true,
 	};
 },
 
@@ -111,6 +112,8 @@ export default {
   <p v-show="visible[1]">Paragraph 2</p>
   <button @click="toggleParagraph(2)" class="custom-btn btn-12">{{ buttonText[2] }}</button>
   <p v-show="visible[2]">Paragraph 3</p>
+  <p v-if="isAdmin">Привет, администратор!</p>
+  <p v-else>Здравствуйте, обычный пользователь.</p>
 </template>
 <style >
 
