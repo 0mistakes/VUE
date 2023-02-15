@@ -13,6 +13,7 @@ export default {
     buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
     isAdmin: true,
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
+    age: 25,
 	};
 },
 
@@ -107,13 +108,9 @@ export default {
   <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
   <p v-if="isVisible">Текст абзаца</p>
   <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
-  <p v-if="day === 'Monday'">Monday</p>
-  <p v-if="day === 'Tuesday'">Tuesday</p>
-  <p v-if="day === 'Wednesday'">Wednesday</p>
-  <p v-if="day === 'Thursday'">Thursday</p>
-  <p v-if="day === 'Friday'">Friday</p>
-  <p v-if="day === 'Saturday'">Saturday</p>
-  <p v-if="day === 'Sunday'">Sunday</p>
+  <p v-if="age < 18">подросток</p>
+  <p v-else-if="age >= 19 && age <= 25">молодой человек</p>
+  <p v-else>мужчина</p>
 </template>
 <style >
 
