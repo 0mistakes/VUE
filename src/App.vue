@@ -24,6 +24,11 @@ export default {
         user3: '300$ -3',
       },
     items: [1, 2, 3],
+    hrefs: [
+        { href: '1.html', text: 'text1' },
+        { href: '2.html', text: 'text2' },
+        { href: '3.html', text: 'text3' },
+    ],
 	};
 },
 
@@ -102,17 +107,10 @@ export default {
     <span>Узнать дату</span>
   </button>
   <ul>
-    <li v-for="(value, key) in obj" :key="key">{{ value }}</li>
-    <li v-for="(value, key, index) in data" :key="key">
-    {{ key }} - {{ value }} - {{ index + 1 }}
+    <li v-for="item in hrefs" :key="item.href">
+      <a :href="item.href">{{ item.text }}</a>
     </li>
   </ul>
-  <div>
-    <div v-for="item in items" :key="item">
-      <p>{{ item }}</p>
-      <p class="divider"></p>
-    </div>
-  </div>
 </template>
 <style >
 
