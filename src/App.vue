@@ -29,6 +29,23 @@ export default {
         { href: '2.html', text: 'text2' },
         { href: '3.html', text: 'text3' },
     ],
+    products: [
+        {
+          name: 'product1',
+          price: 100,
+          quantity: 5,
+        },
+        {
+          name: 'product2',
+          price: 200,
+          quantity: 4,
+        },
+        {
+          name: 'product3',
+          price: 300,
+          quantity: 3,
+        },
+    ],
 	};
 },
 
@@ -106,11 +123,9 @@ export default {
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
-  <ul>
-    <li v-for="item in hrefs" :key="item.href">
-      <a :href="item.href">{{ item.text }}</a>
-    </li>
-  </ul>
+  <div>
+    <p v-for="number in 30" :key="number">{{ number }}</p>
+  </div>
 </template>
 <style >
 
