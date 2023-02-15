@@ -12,6 +12,7 @@ export default {
     visible: [false, false, false],
     buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
     isAdmin: true,
+    day: new Date().toLocaleString('en-US', { weekday: 'long' }),
 	};
 },
 
@@ -106,14 +107,13 @@ export default {
   <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
   <p v-if="isVisible">Текст абзаца</p>
   <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
-  <button @click="toggleParagraph(0)" class="custom-btn btn-12">{{ buttonText[0] }}</button>
-  <p v-show="visible[0]">Paragraph 1</p>
-  <button @click="toggleParagraph(1)" class="custom-btn btn-12">{{ buttonText[1] }}</button>
-  <p v-show="visible[1]">Paragraph 2</p>
-  <button @click="toggleParagraph(2)" class="custom-btn btn-12">{{ buttonText[2] }}</button>
-  <p v-show="visible[2]">Paragraph 3</p>
-  <p v-if="isAdmin">Привет, администратор!</p>
-  <p v-else>Здравствуйте, обычный пользователь.</p>
+  <p v-if="day === 'Monday'">Monday</p>
+  <p v-if="day === 'Tuesday'">Tuesday</p>
+  <p v-if="day === 'Wednesday'">Wednesday</p>
+  <p v-if="day === 'Thursday'">Thursday</p>
+  <p v-if="day === 'Friday'">Friday</p>
+  <p v-if="day === 'Saturday'">Saturday</p>
+  <p v-if="day === 'Sunday'">Sunday</p>
 </template>
 <style >
 
