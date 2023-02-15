@@ -8,7 +8,7 @@ export default {
 		href: 'page.html',
     cost: 10,
     amount: 5,
-    visible: true,
+    isVisible: false,
 	};
 },
 
@@ -56,6 +56,12 @@ export default {
     changeCost() {
       this.cost += 5;
     },
+    showParagraph() {
+      this.isVisible = true;
+    },
+    hideParagraph() {
+      this.isVisible = false;
+    },
   },
   
   created() {
@@ -81,8 +87,9 @@ export default {
   <p>Amount: {{ amount }}</p>
   <p>Price: {{ price }}</p>
   <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
-  <button @click.once="handleClick" class="custom-btn btn-12">Click me</button>
-  <p v-if="!hidden">text</p>
+  <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
+  <p v-if="isVisible">Текст абзаца</p>
+  <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
 </template>
 <style >
 
