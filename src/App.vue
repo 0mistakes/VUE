@@ -82,8 +82,7 @@ export default {
   <p>Price: {{ price }}</p>
   <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
   <button @click.once="handleClick" class="custom-btn btn-12">Click me</button>
-  <p v-if="visible">Первый абзац</p>
-  <p v-else>Второй абзац</p>
+  <p v-if="!hidden">text</p>
 </template>
 <style >
 
