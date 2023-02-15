@@ -34,7 +34,8 @@ export default {
           price: 300,
           quantity: 3
         },
-      ]
+    ],
+    items: [1, -2, 3, -4, 5],
 	};
 },
 
@@ -125,6 +126,9 @@ export default {
     </tr>
   </table>
   <p v-for="num in 30">{{ num }}&nbsp;</p>
+  <div v-for="item in items">
+    <p v-if="item >= 0">{{ item }}&nbsp;</p>
+  </div>
 </template>
 <style >
 
