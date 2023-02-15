@@ -9,6 +9,9 @@ export default {
     cost: 10,
     amount: 5,
     isVisible: false,
+    showFirst: false,
+    showSecond: false,
+    showThird: false,
 	};
 },
 
@@ -62,6 +65,15 @@ export default {
     hideParagraph() {
       this.isVisible = false;
     },
+    toggleFirst() {
+      this.showFirst = !this.showFirst;
+    },
+    toggleSecond() {
+      this.showSecond = !this.showSecond;
+    },
+    toggleThird() {
+      this.showThird = !this.showThird;
+    },
   },
   
   created() {
@@ -90,6 +102,12 @@ export default {
   <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
   <p v-if="isVisible">Текст абзаца</p>
   <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
+  <button @click="toggleFirst" class="custom-btn btn-12">Toggle First Paragraph</button>
+  <button @click="toggleSecond" class="custom-btn btn-12">Toggle Second Paragraph</button>
+  <button @click="toggleThird" class="custom-btn btn-12">Toggle Third Paragraph</button>
+  <p v-show="showFirst">First Paragraph</p>
+  <p v-show="showSecond">Second Paragraph</p>
+  <p v-show="showThird">Third Paragraph</p>
 </template>
 <style >
 
