@@ -19,9 +19,9 @@ export default {
     showParagraph3: true,
     showParagraph: true,
     obj: {
-        user1: '100$',
-        user2: '200$',
-        user3: '300$',
+        user1: '100$ -1 ',
+        user2: '200$ -2',
+        user3: '300$ -3',
       },
 	};
 },
@@ -102,6 +102,9 @@ export default {
   </button>
   <ul>
     <li v-for="(value, key) in obj" :key="key">{{ value }}</li>
+    <li v-for="(value, key, index) in data" :key="key">
+    {{ key }} - {{ value }} - {{ index + 1 }}
+    </li>
   </ul>
 </template>
 <style >
