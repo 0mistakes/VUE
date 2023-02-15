@@ -18,8 +18,11 @@ export default {
     showParagraph2: true,
     showParagraph3: true,
     showParagraph: true,
-    items: [1, 2, 3, 4, 5],
-    arr: ['x', 'y', 'z'],
+    obj: {
+        user1: '100$',
+        user2: '200$',
+        user3: '300$',
+      },
 	};
 },
 
@@ -98,7 +101,7 @@ export default {
     <span>Узнать дату</span>
   </button>
   <ul>
-    <li v-for="(item, index) in arr" :key="index">{{ index }}</li>
+    <li v-for="(value, key) in obj" :key="key">{{ value }}</li>
   </ul>
 </template>
 <style >
