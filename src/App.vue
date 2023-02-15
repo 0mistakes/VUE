@@ -13,39 +13,28 @@ export default {
     buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
     isAdmin: true,
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
-    age: 25,
-    showParagraph1: true,
-    showParagraph2: true,
-    showParagraph3: true,
-    showParagraph: true,
-    obj: {
-        user1: '100$ -1 ',
-        user2: '200$ -2',
-        user3: '300$ -3',
-      },
-    items: [1, 2, 3],
     hrefs: [
-        { href: '1.html', text: 'text1' },
-        { href: '2.html', text: 'text2' },
-        { href: '3.html', text: 'text3' },
-    ],
+        {href: '1.html', text: 'text1'},
+        {href: '2.html', text: 'text2'},
+        {href: '3.html', text: 'text3'},
+		],
     products: [
         {
           name: 'product1',
           price: 100,
-          quantity: 5,
+          quantity: 5
         },
         {
           name: 'product2',
           price: 200,
-          quantity: 4,
+          quantity: 4
         },
         {
           name: 'product3',
           price: 300,
-          quantity: 3,
+          quantity: 3
         },
-    ],
+      ]
 	};
 },
 
@@ -123,9 +112,18 @@ export default {
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
-  <div>
-    <p v-for="number in 30" :key="number">{{ number }}</p>
-  </div>
+  Задание 1&nbsp;|&nbsp;
+  <ul v-for="smh in hrefs">
+    <li><a href="{{ smh.href }}">{{ smh.text }}</a></li>
+  </ul>
+  <br>Задание 2&nbsp;|&nbsp;
+  <table v-for="product in products">
+    <tr>
+      <td>{{ product.name }}</td>
+      <td>{{ product.price }}</td>
+      <td>{{ product.quantity }}</td>
+    </tr>
+  </table>
 </template>
 <style >
 
