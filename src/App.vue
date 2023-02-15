@@ -18,6 +18,7 @@ export default {
     showParagraph2: true,
     showParagraph3: true,
     showParagraph: true,
+    items: [1, 2, 3, 4, 5],
 	};
 },
 
@@ -73,6 +74,9 @@ export default {
     toggleParagraph() {
       this.showParagraph = !this.showParagraph
     },
+    square(num) {
+      return num ** 2;
+    },
   },
   
   created() {
@@ -92,17 +96,11 @@ export default {
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
-  <button @click="changeText1" class="custom-btn btn-12">{{ text }}</button>
-  <button @click="changeText2" class="custom-btn btn-12">{{ text }}</button>
-  <p>Cost: {{ cost }}</p>
-  <p>Amount: {{ amount }}</p>
-  <p>Price: {{ price }}</p>
-  <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
-  <p v-if="age < 18">подросток</p>
-  <p v-else-if="age >= 19 && age <= 25">молодой человек</p>
-  <p v-else>мужчина</p>
-  <button @click="toggleParagraph" class="custom-btn btn-12">Показать/скрыть абзац</button>
-  <p v-if="showParagraph">Этот абзац может быть скрыт или показан</p>
+  <div v-for="item in items" :key="item">{{ item }}</div>
+  <div v-for="item in items" :key="item">{{ square(item) }}</div>
+  <ul>
+    <li v-for="item in items" :key="item">{{ item }}</li>
+  </ul>
 </template>
 <style >
 
