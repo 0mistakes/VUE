@@ -6,8 +6,16 @@ export default {
 		name: 'Pudge',
 		surn: ' ',
 		href: 'page.html',
+    cost: 10,
+    amount: 5,
 	};
 },
+
+  computed: {
+      price() {
+        return this.cost * this.amount;
+      },
+    },
   
   methods: {
     show() {
@@ -28,6 +36,12 @@ export default {
     },
     changeText2() {
       this.text = 'Second value';
+    },
+    changeText2() {
+      this.text = 'Second value';
+    },
+    changeCost() {
+      this.cost += 5;
     },
   },
   
@@ -50,6 +64,10 @@ export default {
   </button>
   <button @click="changeText1" class="custom-btn btn-12">{{ text }}</button>
   <button @click="changeText2" class="custom-btn btn-12">{{ text }}</button>
+  <p>Cost: {{ cost }}</p>
+  <p>Amount: {{ amount }}</p>
+  <p>Price: {{ price }}</p>
+  <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
 </template>
 <style >
 
