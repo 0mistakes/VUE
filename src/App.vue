@@ -17,6 +17,7 @@ export default {
     showParagraph1: true,
     showParagraph2: true,
     showParagraph3: true,
+    showParagraph: true,
 	};
 },
 
@@ -64,30 +65,14 @@ export default {
     changeCost() {
       this.cost += 5;
     },
-    showParagraph() {
-      this.isVisible = true;
-    },
-    hideParagraph() {
-      this.isVisible = false;
-    },
-    toggleFirst() {
-      this.showFirst = !this.showFirst;
-    },
-    toggleSecond() {
-      this.showSecond = !this.showSecond;
-    },
-    toggleThird() {
-      this.showThird = !this.showThird;
-    },
-    toggleParagraph(index) {
-      this.visible[index] = !this.visible[index];
-      this.buttonText[index] = this.visible[index] ? 'Hide paragraph ' + (index + 1) : 'Show paragraph ' + (index + 1);
-    },
     hideParagraphs() {
       this.showParagraph1 = false;
       this.showParagraph2 = false;
       this.showParagraph3 = false;
-    }
+    },
+    toggleParagraph() {
+      this.showParagraph = !this.showParagraph
+    },
   },
   
   created() {
@@ -116,10 +101,8 @@ export default {
   <p v-if="age < 18">подросток</p>
   <p v-else-if="age >= 19 && age <= 25">молодой человек</p>
   <p v-else>мужчина</p>
-  <p v-if="showParagraph1">Абзац 1 </p>
-  <p v-if="showParagraph2">Абзац 2</p>
-  <p v-if="showParagraph3">Абзац 3</p>
-  <button @click="hideParagraphs" class="custom-btn btn-12">Скрыть абзацы</button>
+  <button @click="toggleParagraph" class="custom-btn btn-12">Показать/скрыть абзац</button>
+  <p v-if="showParagraph">Этот абзац может быть скрыт или показан</p>
 </template>
 <style >
 
