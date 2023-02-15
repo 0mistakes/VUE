@@ -21,10 +21,22 @@ export default {
     show() {
       alert(new Date().toLocaleString());
     },
+    handleClick() {
+      this.clicks++;
+      console.log('Button clicked');
+    },
+    handleClick(event) {
+      // Обработчик клика на ссылке
+      // Остановить действие по умолчанию (переход по ссылке)
+      event.preventDefault();
+    },
 
     getDayOfWeek(num) {
       const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
       return daysOfWeek[num];
+    },
+    updateCost() {
+      this.cost += 1;
     },
 
     showDayOfWeek() {
@@ -58,7 +70,7 @@ export default {
   <div class="left-side">
     <p> {{ name }} {{ surn }}</p>
   </div>
-  <a href="page.html">page</a>
+  <a href="page.html" v-on:click.prevent="handleClick">Page</a>
   <button @mouseenter="show" class="custom-btn btn-12">
     <span>Узнать дату</span>
   </button>
@@ -68,6 +80,7 @@ export default {
   <p>Amount: {{ amount }}</p>
   <p>Price: {{ price }}</p>
   <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
+  <button @click.once="handleClick" class="custom-btn btn-12">Click me</button>
 </template>
 <style >
 
