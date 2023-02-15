@@ -9,9 +9,8 @@ export default {
     cost: 10,
     amount: 5,
     isVisible: false,
-    showFirst: false,
-    showSecond: false,
-    showThird: false,
+    visible: [false, false, false],
+    buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3']
 	};
 },
 
@@ -74,6 +73,10 @@ export default {
     toggleThird() {
       this.showThird = !this.showThird;
     },
+    toggleParagraph(index) {
+      this.visible[index] = !this.visible[index];
+      this.buttonText[index] = this.visible[index] ? 'Hide paragraph ' + (index + 1) : 'Show paragraph ' + (index + 1);
+    }
   },
   
   created() {
@@ -102,12 +105,12 @@ export default {
   <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
   <p v-if="isVisible">Текст абзаца</p>
   <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
-  <button @click="toggleFirst" class="custom-btn btn-12">Toggle First Paragraph</button>
-  <button @click="toggleSecond" class="custom-btn btn-12">Toggle Second Paragraph</button>
-  <button @click="toggleThird" class="custom-btn btn-12">Toggle Third Paragraph</button>
-  <p v-show="showFirst">First Paragraph</p>
-  <p v-show="showSecond">Second Paragraph</p>
-  <p v-show="showThird">Third Paragraph</p>
+  <button @click="toggleParagraph(0)" class="custom-btn btn-12">{{ buttonText[0] }}</button>
+  <p v-show="visible[0]">Paragraph 1</p>
+  <button @click="toggleParagraph(1)" class="custom-btn btn-12">{{ buttonText[1] }}</button>
+  <p v-show="visible[1]">Paragraph 2</p>
+  <button @click="toggleParagraph(2)" class="custom-btn btn-12">{{ buttonText[2] }}</button>
+  <p v-show="visible[2]">Paragraph 3</p>
 </template>
 <style >
 
