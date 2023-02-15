@@ -14,6 +14,9 @@ export default {
     isAdmin: true,
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
     age: 25,
+    showParagraph1: true,
+    showParagraph2: true,
+    showParagraph3: true,
 	};
 },
 
@@ -79,6 +82,11 @@ export default {
     toggleParagraph(index) {
       this.visible[index] = !this.visible[index];
       this.buttonText[index] = this.visible[index] ? 'Hide paragraph ' + (index + 1) : 'Show paragraph ' + (index + 1);
+    },
+    hideParagraphs() {
+      this.showParagraph1 = false;
+      this.showParagraph2 = false;
+      this.showParagraph3 = false;
     }
   },
   
@@ -105,12 +113,13 @@ export default {
   <p>Amount: {{ amount }}</p>
   <p>Price: {{ price }}</p>
   <button @click="changeCost" class="custom-btn btn-12">Change cost</button>
-  <button v-if="!isVisible" @click="showParagraph" class="custom-btn btn-12">Показать абзац</button>
-  <p v-if="isVisible">Текст абзаца</p>
-  <button v-if="isVisible" @click="hideParagraph" class="custom-btn btn-12">Скрыть абзац</button>
   <p v-if="age < 18">подросток</p>
   <p v-else-if="age >= 19 && age <= 25">молодой человек</p>
   <p v-else>мужчина</p>
+  <p v-if="showParagraph1">Абзац 1 </p>
+  <p v-if="showParagraph2">Абзац 2</p>
+  <p v-if="showParagraph3">Абзац 3</p>
+  <button @click="hideParagraphs" class="custom-btn btn-12">Скрыть абзацы</button>
 </template>
 <style >
 
