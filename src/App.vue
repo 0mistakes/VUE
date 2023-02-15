@@ -49,29 +49,24 @@ export default {
       const currentDay = new Date().getDay();
       alert(`Today is ${this.getDayOfWeek(currentDay)}`);
     },
-    changeText1() {
-      this.text = 'First value';
-    },
-    changeText2() {
-      this.text = 'Second value';
-    },
-    changeText2() {
-      this.text = 'Second value';
-    },
-    changeCost() {
-      this.cost += 5;
-    },
-    hideParagraphs() {
-      this.showParagraph1 = false;
-      this.showParagraph2 = false;
-      this.showParagraph3 = false;
-    },
-    toggleParagraph() {
-      this.showParagraph = !this.showParagraph
-    },
-    square(num) {
-      return num ** 2;
-    },
+    add: function() {
+		  this.arr.push('b');
+  },
+    delFirst: function() {
+      this.arr.shift();
+  },
+    delLast: function() {
+      this.arr.pop();
+  },
+    delSecondToLast: function() {
+      this.arr.splice(-2, 1);
+  },
+    sortArr: function() {
+      this.arr.sort();
+  },
+    reverseOrder: function() {
+      this.arr.reverse();
+  }
   },
   
   created() {
