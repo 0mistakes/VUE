@@ -10,14 +10,8 @@ export default {
     amount: 5,
     isVisible: false,
     visible: [false, false, false],
-    buttonText: ['Show paragraph 1', 'Show paragraph 2', 'Show paragraph 3'],
-    isAdmin: true,
-    day: new Date().toLocaleString('en-US', { weekday: 'long' }),
-    arr: ['a', 'c', 'd'],
-    cssClasses: "border: 5px solid red",
     obj: {
-        done: true,
-        selected: false,
+        hidden: true,
       },
 	};
 },
@@ -29,6 +23,9 @@ export default {
     },
   
   methods: {
+    setDone: function () {
+      this.obj.hidden = !this.obj.hidden;
+    },
     show() {
       alert(new Date().toLocaleString());
     },
@@ -110,16 +107,23 @@ export default {
     <span>Узнать дату</span>
   </button>
   Задание 1&nbsp;|&nbsp;
-  <button @click.once="add">Задание 1</button>
-  <button @click.once="delFirst">Задание 2</button>
-  <button @click.once="delLast">Задание 3</button>
-  <button @click.once="delSecondToLast">Задание 4</button>
-  <button @click.once="sortArr">Задание 5</button>
-  <button @click.once="reverseOrder">Задание 6</button>
-  <p :class="obj">yuken</p>
+  <button @click="this.obj.hidden = false">hide Task 2</button>
+  <button @click="this.obj.hidden = true">hide Task 3</button>
+  <button @click="setDone">{{ obj.hidden ? "show" : "hide" }} Task 4</button><br />
+  <p>&nbsp;&nbsp;&nbsp;&nbsp;</p>
+  <p :class="obj">Task 1</p>
 </template>
 <style >
-
+p.hidden {
+  display: none;
+}
+done {
+  border: 5px solid red;
+}
+.selected {
+  color: green;
+  font-size: 10em;
+}
 .custom-btn {
   width: 130px;
   height: 40px;
