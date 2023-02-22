@@ -10,19 +10,9 @@ export default {
 		href: 'page.html',
     cost: 10,
     amount: 5,
-    isVisible: false,
-    visible: [false, false, false],
-    number: 1,
-    number_square: "Task 1",
-    numero_uno: 0,
-    numero_dos: 0,
-    sum_number: "Task 2",
-    text_uno: "placeholder",
-    text_dos: "placeholder",
-    fullName: "",
-    userName: "",
-    userSurname: "",
-    userPatronymic: "",
+    text: "",
+    text_button: "",
+    text_array: "",
 	};
 },
 
@@ -33,46 +23,26 @@ export default {
     },
   
   methods: {
-    square: function () {
-      this.number_square = this.number ** 2;
-    },
-    sum: function () {
-      this.sum_number = this.numero_uno + this.numero_dos;
-    },
-    swap: function () {
-      const temp = this.text_uno;
-      this.text_uno = this.text_dos;
-      this.text_dos = temp;
-    },
-    split: function () {
-      this.userSurname = this.fullName.split(" ")[0];
-      this.userName = this.fullName.split(" ")[1];
-      this.userPatronymic = this.fullName.split(" ")[2];
+    split_text: function () {
+      this.text_array = this.text_button.split(" ");
     },
   }
 };
 </script>
 <template>
-  input type="number" v-model="number" />
-  <button @click="square">Square of number</button>
+   <textarea v-model="text"></textarea>
   &nbsp;
-  <p>{{ number_square }}</p>
+  <p>{{ text }}</p>
   &nbsp;
-  <input type="number" v-model="numero_uno" />
-  <input type="number" v-model="numero_dos" />
-  <button @click="sum">Summ of numbers</button>
+  <textarea v-model="text_button"></textarea>
   &nbsp;
-  <p>{{ sum_number }}</p>
+  <button @click="split_text">Array</button>
   &nbsp;
-  <input type="text" v-model="text_uno" />
-  <input type="text" v-model="text_dos" />
-  <button @click="swap">Swap values</button>
-  &nbsp;
-  <input type="text" v-model="fullName" />
-  <button @click="split">Split full name</button>
-  <p>Surname = {{ userSurname }}</p>
-  <p>Name = {{ userName }}</p>
-  <p>Patronymic = {{ userPatronymic }}</p>
+  <ul v-for="elem in text_array">
+    <li :key="key">
+      {{ elem }}
+    </li>
+  </ul>
 </template>
 <style >
 .active {
