@@ -14,6 +14,7 @@ export default {
     text_button: "",
     checked: true,
     languages: [],
+    selected: "Выберите город",
 	};
 },
 
@@ -31,20 +32,16 @@ export default {
 };
 </script>
 <template>
-  <input type="checkbox" v-model="languages" value="english" />
+  <select v-model="selected">
+    <option>Сады Хана Алана</option>
+    <option>Центрум</option>
+    <option>Старый Крым</option>
+    <option>Симферополь</option>
+    <option>Кипу</option>
+    <option>Ускут</option>
+  </select>
   &nbsp;
-  <p>English</p>
-  &nbsp;
-  <input type="checkbox" v-model="languages" value="russian" />
-  &nbsp;
-  <p>Russian</p>
-  <input type="checkbox" v-model="languages" value="javascript" />
-  &nbsp;
-  <p>JavaScript</p>
-  &nbsp;
-  <ul v-for="elem in languages">
-    <li>{{ elem }}</li>
-  </ul>
+  <p>{{ selected }}</p>
 </template>
 <style >
 .active {
