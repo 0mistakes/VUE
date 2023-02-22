@@ -14,6 +14,7 @@ export default {
     isAdmin: true,
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
     arr: ['a', 'c', 'd'],
+    cssClasses: "border: 5px solid red",
 	};
 },
 
@@ -111,9 +112,7 @@ export default {
   <button @click.once="delSecondToLast">Задание 4</button>
   <button @click.once="sortArr">Задание 5</button>
   <button @click.once="reverseOrder">Задание 6</button>
-  <ul v-for="elem in arr">
-    <li>{{ elem }}</li>
-  </ul><br>
+  <p :style="cssClasses">yuken</p>
 </template>
 <style >
 
