@@ -15,7 +15,8 @@ export default {
     obj: {
         hidden: true,
       },
-    
+    task: "Task",
+    task_number: 1,
 	};
 },
 
@@ -36,86 +37,19 @@ export default {
       this.clicks++;
       console.log('Button clicked');
     },
-    handleClick(event) {
-      // Обработчик клика на ссылке
-      // Остановить действие по умолчанию (переход по ссылке)
-      event.preventDefault();
-    },
-
-    getDayOfWeek(num) {
-      const daysOfWeek = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
-      return daysOfWeek[num];
-    },
-    updateCost() {
-      this.cost += 1;
-    },
-
-    showDayOfWeek() {
-      const currentDay = new Date().getDay();
-      alert(`Today is ${this.getDayOfWeek(currentDay)}`);
-    },
-    add: function() {
-		  this.arr.push('b');
-  },
-    delFirst: function() {
-      this.arr.shift();
-  },
-    delLast: function() {
-      this.arr.pop();
-  },
-    delSecondToLast: function() {
-      this.arr.splice(-2, 1);
-  },
-    sortArr: function() {
-      this.arr.sort();
-  },
-    reverseOrder: function() {
-      this.arr.reverse();
-  }
-  },
-  
-  created() {
-    this.showDayOfWeek();
-  },
-  add: function() {
-		  this.arr.push('b');
-  },
-    delFirst: function() {
-      this.arr.shift();
-  },
-    delLast: function() {
-      this.arr.pop();
-  },
-    delSecondToLast: function() {
-      this.arr.splice(-2, 1);
-  },
-    sortArr: function() {
-      this.arr.sort();
-  },
-    reverseOrder: function() {
-      this.arr.reverse();
   }
 };
 </script>
 <template>
-  <div>
-		<h1> vue quest </h1>
-	</div>
-  <br>
-  <div class="left-side">
-    <p> {{ name }} {{ surn }}</p>
-  </div>
-  <a href="page.html" v-on:click.prevent="handleClick">Page</a>
-  <button @mouseenter="show" class="custom-btn btn-12">
-    <span>Узнать дату</span>
-  </button>
-  <p :style="{ color: 'green', background: 'yellow', fontSize: '30px' }">
-    Task 1
-  </p>
-  &nbsp; &nbsp; &nbsp;
-  <p :style="{ fontWeight: 'bold', fontStyle: 'italic', fontSize: '30px' }">
-    Task 2
-  </p>
+  <input type="text" v-model="task" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <p>{{ task }}</p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <p>{{ task.toUpperCase() }}</p>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <input type="number" v-model="task_number" />
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <p>{{ task_number ** 2 }}</p>
 </template>
 <style >
 .active {
