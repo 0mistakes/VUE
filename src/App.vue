@@ -12,6 +12,7 @@ export default {
     amount: 5,
     dayWeek: "Task 1",
     dayWeek: "Task 1",
+    isDisabled: false,
       dayWeekOptions: [
         "Monday",
         "Tuesday",
@@ -52,24 +53,18 @@ export default {
 };
 </script>
 <template>
-   <select v-model="dayWeek">
-    <option v-for="option in dayWeekOptions">{{ option }}</option>
-  </select>
+   <input
+    type="checkbox"
+    :checked="isDisabled"
+    @click="($event) => (this.isDisabled = !this.isDisabled)"
+  />
   &nbsp;
-  {{ dayWeek }}
-  &nbsp;
-
-  <select v-model="dayYear">
-    <option v-for="option in dayYearOptions">{{ option }}</option>
-  </select>
-  <select v-model="monthYear">
-    <option v-for="option in monthYearOptions">{{ option }}</option>
-  </select>
-  <select v-model="yearYear">
-    <option v-for="option in yearYearOptions">{{ option }}</option>
-  </select>
-  &nbsp;
-  <button @click="todayDate">Today's date</button>
+  <button
+    v-bind:disabled="!isDisabled"
+    @click="($event) => (this.isDisabled = !this.isDisabled)"
+  >
+    {{ isDisabled ? "input is enabled" : "input is disabled" }}
+  </button>
 </template>
 <style >
 .active {
