@@ -15,6 +15,10 @@ export default {
     day: new Date().toLocaleString('en-US', { weekday: 'long' }),
     arr: ['a', 'c', 'd'],
     cssClasses: "border: 5px solid red",
+    obj: {
+        done: true,
+        selected: false,
+      },
 	};
 },
 
@@ -112,7 +116,7 @@ export default {
   <button @click.once="delSecondToLast">Задание 4</button>
   <button @click.once="sortArr">Задание 5</button>
   <button @click.once="reverseOrder">Задание 6</button>
-  <p :style="cssClasses">yuken</p>
+  <p :class="obj">yuken</p>
 </template>
 <style >
 
