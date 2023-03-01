@@ -1,3 +1,4 @@
+
 <script>
 export default {
     emits: ['show', 'show1'],
@@ -6,19 +7,19 @@ export default {
         }
     },
     methods: {
-        handle() {
-            this.$emit('show');
+        handleName() {
+            this.$emit('show', 'Karina Volkova');
         },
-        handle1() {
-            this.$emit('show1');
-        },
+        handleSalary(){
+            this.$emit('show1', 'Leha Boroda', '18500');
+        }
     }
 }
 </script>
 
 <template>
-<button class="button" @click="handle">Prikolovni</button>
-<button class="button" @click="handle1">Bebrusovi</button>
+<button class="button" @click="handleName">Имя</button>
+<button class="button" @click="handleSalary">Зарплата</button>
 </template>
 <style>
 </style>

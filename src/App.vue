@@ -1,4 +1,3 @@
-
 <script>
 import Employee from './components/Employee.vue'
 export default {
@@ -11,18 +10,18 @@ export default {
     Employee
   },
   methods: {
-    ponya() {
-      alert('Karina, Polina, Dasha');
+    developerName(name) {
+      console.log(name);
     },
-    bebrusovi(){
-      alert('Leha, Petya, Jujuba')
+    developerSalary(name, salary){
+console.log(name, salary);
     }
   }
 }
 </script>
 
 <template>
-<Employee @show="ponya" @show1="bebrusovi" />
+<Employee @show="developerName" @show1="developerSalary"/>
 </template>
 <style >
 .active {
