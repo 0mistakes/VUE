@@ -11,17 +11,14 @@ export default {
   },
   methods: {
     developerName(name) {
-      console.log(name);
+      alert(name);
     },
-    developerSalary(name, salary){
-console.log(name, salary);
-    }
   }
 }
 </script>
 
 <template>
-<Employee @show="developerName" @show1="developerSalary"/>
+<Employee @show="developerName"/>
 </template>
 <style >
 .active {
