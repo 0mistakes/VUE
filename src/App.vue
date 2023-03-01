@@ -7,6 +7,7 @@ export default {
 };
 </script>
 <template>
+  <Employee name="Karina" surn="Pavlovna" age="21" />
 </template>
 <style >
 .active {
