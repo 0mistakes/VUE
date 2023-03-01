@@ -1,25 +1,19 @@
 <script>
-import Employee from './components/Employee.vue'
 export default {
-  data() {
-    return {
-      
-    }
-  },
-  components: {
-    Employee
-  },
-  methods: {
-    developerName(name) {
-      alert(name);
+    emits: ['show'],
+    data() {
+        return {
+        }
     },
-  }
+    methods: {
+    }
 }
 </script>
 
 <template>
-<Employee @show="developerName"/>
+<button class="button" @click="$emit('show', 'Karina Volkova')">Имя</button>
 </template>
+
 <style >
 .active {
   border: 5px solid red;
