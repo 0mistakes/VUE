@@ -3,7 +3,7 @@ import Employee from './components/Employee.vue'
 export default {
   data() {
     return {
-      name: 'Karina',
+      name: 'Karina S',
       salary: '5000',
       age: '21',
     }
