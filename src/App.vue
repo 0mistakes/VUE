@@ -2,29 +2,26 @@
 export default {
     data() {
 	return {
-    isValid: true,
-    isDisabled: true,
-    text: 'Initial value',
-		name: 'Pudge',
-		surn: ' ',
-		href: 'page.html',
-    cost: 10,
-    amount: 5,
-    dayWeek: "Task 1",
-    value: ["1", "2", "3", "4", "5"],
-    isDisabled: false,
-      dayWeekOptions: [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
+    customers: [
+        {
+          id: 1,
+          name: "Osman",
+          value: 100,
+          age: 30,
+        },
+        {
+          id: 2,
+          name: "Dilyaver",
+          value: 200,
+          age: 40,
+        },
+        {
+          id: 3,
+          name: "Diana",
+          value: 300,
+          age: 50,
+        },
       ],
-      var_1: "Task 1",
-      newItem: "",
-      items: ["a", "b", "c", "d", "e"],
     };
   },
   computed: {
@@ -34,18 +31,31 @@ export default {
     },
   
   methods: {
-    removeItem: function (index) {
-      this.value.splice(index, 1);
+    removeItem: function (id) {
+      this.customers = this.customers.filter((customer) => {
+        return customer.id !== id;
+      });
     },
   }
 };
 </script>
 <template>
-   <ul>
-    <li v-for="(item, index) in value" :key="index">
-      <button class="button" @click="removeItem(index)">{{ item }}</button>
-    </li>
-  </ul>
+   <table>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Salary</th>
+      <th>Age</th>
+      <th>Remove</th>
+    </tr>
+    <tr v-for="customer in customers">
+      <td>{{ customer.id }}</td>
+      <td>{{ customer.name }}</td>
+      <td>{{ customer.value }}</td>
+      <td>{{ customer.age }}</td>
+      <td><button class="button" @click="removeItem(customer.id)">remove</button></td>
+    </tr>
+  </table>
 </template>
 <style >
 .active {
