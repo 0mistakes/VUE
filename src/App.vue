@@ -1,17 +1,47 @@
 <script>
+import Employee from './components/Employee.vue'
 export default {
-    emits: ['show'],
-    data() {
-        return {
-        }
-    },
-    methods: {
+  data() {
+    return {
+      developers: [
+        {
+          id: 1,
+          name: 'Karina',
+          surn: 'Volkova'
+        },
+        {
+          id: 2,
+          name: 'Dasha',
+          surn: 'Styles'
+        },
+        {
+          id: 3,
+          name: 'Osman',
+          surn: 'Asanov'
+        },
+      ],
     }
+  },
+  components: {
+    Employee
+  },
+  methods: {
+    remove(id) {
+      this.developers = this.developers.filter((developer) => {
+        return developer.id !== id;
+      })
+    }
+  }
 }
 </script>
 
 <template>
-<button class="button" @click="$emit('show', 'Karina Volkova')">Имя</button>
+<Employee v-for   ="developer in developers"
+		:id     ="developer.id"
+		:name   ="developer.name"
+		:surn   ="developer.surn"
+		@remove ="remove"
+		:key    ="developer.id"/>
 </template>
 
 <style >
